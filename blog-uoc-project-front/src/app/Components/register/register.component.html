@@ -1,0 +1,68 @@
+<div style="margin-left: auto; margin-right: auto">
+  <p id="registerFeedback"></p>
+</div>
+<div>
+  <h1>Register</h1>
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <div>
+      <label for="name">Name</label>
+      <input id="name" formControlName="name" />
+      <div *ngIf="registerForm.get('name')?.invalid && (registerForm.get('name')?.touched || registerForm.get('name')?.dirty)">
+        <small *ngIf="registerForm.get('name')?.errors?.required">Name is required.</small>
+        <small *ngIf="registerForm.get('name')?.errors?.minlength">Minimum length is 5.</small>
+        <small *ngIf="registerForm.get('name')?.errors?.maxlength">Maximum length is 25.</small>
+      </div>
+    </div>
+    <div>
+      <label for="surname_1">Surname 1</label>
+      <input id="surname_1" formControlName="surname_1" />
+      <div *ngIf="registerForm.get('surname_1')?.invalid && (registerForm.get('surname_1')?.touched || registerForm.get('surname_1')?.dirty)">
+        <small *ngIf="registerForm.get('surname_1')?.errors?.required">Surname 1 is required.</small>
+        <small *ngIf="registerForm.get('surname_1')?.errors?.minlength">Minimum length is 5.</small>
+        <small *ngIf="registerForm.get('surname_1')?.errors?.maxlength">Maximum length is 25.</small>
+      </div>
+    </div>
+    <div>
+      <label for="surname_2">Surname 2</label>
+      <input id="surname_2" formControlName="surname_2" />
+      <div *ngIf="registerForm.get('surname_2')?.invalid && (registerForm.get('surname_2')?.touched || registerForm.get('surname_2')?.dirty)">
+        <small *ngIf="registerForm.get('surname_2')?.errors?.minlength">Minimum length is 5.</small>
+        <small *ngIf="registerForm.get('surname_2')?.errors?.maxlength">Maximum length is 25.</small>
+      </div>
+    </div>
+    <div>
+      <label for="alias">Alias</label>
+      <input id="alias" formControlName="alias" />
+      <div *ngIf="registerForm.get('alias')?.invalid && (registerForm.get('alias')?.touched || registerForm.get('alias')?.dirty)">
+        <small *ngIf="registerForm.get('alias')?.errors?.required">Alias is required.</small>
+        <small *ngIf="registerForm.get('alias')?.errors?.minlength">Minimum length is 5.</small>
+        <small *ngIf="registerForm.get('alias')?.errors?.maxlength">Maximum length is 25.</small>
+      </div>
+    </div>
+    <div>
+      <label for="birth_date">Birth Date</label>
+      <input id="birth_date" type="date" formControlName="birth_date" />
+      <div *ngIf="registerForm.get('birth_date')?.invalid && (registerForm.get('birth_date')?.touched || registerForm.get('birth_date')?.dirty)">
+        <small *ngIf="registerForm.get('birth_date')?.errors?.required">Birth date is required.</small>
+      </div>
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" />
+      <div *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty)">
+        <small *ngIf="registerForm.get('email')?.errors?.required">Email is required.</small>
+        <small *ngIf="registerForm.get('email')?.errors?.email">Email is invalid.</small>
+      </div>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input id="password" type="password" formControlName="password" />
+      <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.touched || registerForm.get('password')?.dirty)">
+        <small *ngIf="registerForm.get('password')?.errors?.required">Password is required.</small>
+        <small *ngIf="registerForm.get('password')?.errors?.minlength">Minimum length is 8.</small>
+        <small *ngIf="registerForm.get('password')?.errors?.maxlength">Maximum length is 16.</small>
+      </div>
+    </div>
+    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+  </form>
+</div>
