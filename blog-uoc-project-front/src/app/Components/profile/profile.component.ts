@@ -3,7 +3,8 @@ import { UntypedFormBuilder, FormGroup, FormControl, Validators } from '@angular
 import { LocalStorageService } from 'src/app/Services/local-storage.service';
 import { SharedService } from 'src/app/Services/shared.service';
 import { UserService } from 'src/app/Services/user.service';
-import { formatDate } from '@angular/common'; // Asegúrate de importar esto
+import { formatDate } from '@angular/common'; 
+
 
 @Component({
   selector: 'app-profile',
@@ -12,7 +13,7 @@ import { formatDate } from '@angular/common'; // Asegúrate de importar esto
 })
 export class ProfileComponent implements OnInit {
   // TODO 4
-  profileUser: any; // Cambia 'any' por tu tipo de usuario si lo tienes
+  profileUser: any;
   name: FormControl;
   surname_1: FormControl;
   surname_2: FormControl;
@@ -33,7 +34,7 @@ export class ProfileComponent implements OnInit {
     this.isValidForm = null;
     this.name = new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]);
     this.surname_1 = new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]);
-    this.surname_2 = new FormControl('', [Validators.maxLength(25)]); // Opcional
+    this.surname_2 = new FormControl('', [Validators.maxLength(25)]); 
     this.alias = new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]);
     this.birth_date = new FormControl('', [Validators.required]);
     this.email = new FormControl('', [Validators.required, Validators.email]);

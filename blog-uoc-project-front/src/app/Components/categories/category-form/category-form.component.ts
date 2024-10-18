@@ -77,9 +77,7 @@ export class CategoryFormComponent implements OnInit {
         );
 
         this.title.setValue(this.category.title);
-
         this.description.setValue(this.category.description);
-
         this.css_color.setValue(this.category.css_color);
 
         this.categoryForm = this.formBuilder.group({
@@ -165,5 +163,10 @@ export class CategoryFormComponent implements OnInit {
     this.category = this.categoryForm.value;
 
     // TODO 10
+    if (this.isUpdateMode) {
+      this.validRequest = await this.editCategory(); 
+    } else {
+      this.validRequest = await this.createCategory(); 
+    }
   }
 }
