@@ -3,6 +3,55 @@
 </div>
 <div>
   <h1>Profile</h1>
+  <form [formGroup]="profileForm" (ngSubmit)="updateUser()">
+    <label>Name:</label>
+    <input formControlName="name" />
+    <div *ngIf="name.invalid && (name.dirty || name.touched)">
+      <div *ngIf="name.errors?.required">Name is required.</div>
+      <div *ngIf="name.errors?.minlength">Minimum length is 5 characters.</div>
+      <div *ngIf="name.errors?.maxlength">Maximum length is 25 characters.</div>
+    </div>
 
-  <!-- TODO 6 -->
+    <label>Surname 1:</label>
+    <input formControlName="surname_1" />
+    <div *ngIf="surname_1.invalid && (surname_1.dirty || surname_1.touched)">
+      <div *ngIf="surname_1.errors?.required">Surname 1 is required.</div>
+      <div *ngIf="surname_1.errors?.minlength">Minimum length is 5 characters.</div>
+      <div *ngIf="surname_1.errors?.maxlength">Maximum length is 25 characters.</div>
+    </div>
+
+    <label>Surname 2:</label>
+    <input formControlName="surname_2" />
+
+    <label>Alias:</label>
+    <input formControlName="alias" />
+    <div *ngIf="alias.invalid && (alias.dirty || alias.touched)">
+      <div *ngIf="alias.errors?.required">Alias is required.</div>
+      <div *ngIf="alias.errors?.minlength">Minimum length is 5 characters.</div>
+      <div *ngIf="alias.errors?.maxlength">Maximum length is 25 characters.</div>
+    </div>
+
+    <label>Birth Date:</label>
+    <input type="date" formControlName="birth_date" />
+    <div *ngIf="birth_date.invalid && (birth_date.dirty || birth_date.touched)">
+      <div *ngIf="birth_date.errors?.required">Birth Date is required.</div>
+    </div>
+
+    <label>Email:</label>
+    <input formControlName="email" />
+    <div *ngIf="email.invalid && (email.dirty || email.touched)">
+      <div *ngIf="email.errors?.required">Email is required.</div>
+      <div *ngIf="email.errors?.email">Email must be a valid email address.</div>
+    </div>
+
+    <label>Password:</label>
+    <input type="password" formControlName="password" />
+    <div *ngIf="password.invalid && (password.dirty || password.touched)">
+      <div *ngIf="password.errors?.required">Password is required.</div>
+      <div *ngIf="password.errors?.minlength">Minimum length is 8 characters.</div>
+      <div *ngIf="password.errors?.maxlength">Maximum length is 16 characters.</div>
+    </div>
+
+    <button type="submit" [disabled]="profileForm.invalid">Update</button>
+  </form>
 </div>
