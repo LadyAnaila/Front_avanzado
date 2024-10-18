@@ -33,11 +33,11 @@ export class RegisterComponent implements OnInit {
     private headerMenusService: HeaderMenusService,
     private router: Router
   ) {
-    // Inicializando variables
-    this.registerUser = {} as UserDTO; // Inicializa registerUser
-    this.isValidForm = null; // Inicializa isValidForm
+    // Inicializar variables
+    this.registerUser = {} as UserDTO; 
+    this.isValidForm = null; 
 
-    // Definiendo el formulario reactivo
+    // FORMULARIO
     this.registerForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]],
       surname_1: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]],
