@@ -37,6 +37,8 @@ export class HomeComponent implements OnInit {
   private async loadPosts(): Promise<void> {
     try {
       this.posts = await this.postService.getPosts();
+      console.log(JSON.stringify(this.posts, null, 2));  // Ver los detalles de cada post    } catch (error: any) {
+      
     } catch (error: any) {
       this.sharedService.errorLog(error);
     }
@@ -45,7 +47,11 @@ export class HomeComponent implements OnInit {
   async like(postId: string): Promise<void> {
     try {
       await this.postService.likePost(postId);
-      this.loadPosts();
+      const updatedPost = await this.postService.getPostById(postId); 
+      const index = this.posts.findIndex(post => post.postId === postId);
+      if (index !== -1) {
+        this.posts[index] = updatedPost; 
+      }
     } catch (error: any) {
       this.sharedService.errorLog(error);
     }
@@ -54,7 +60,11 @@ export class HomeComponent implements OnInit {
   async dislike(postId: string): Promise<void> {
     try {
       await this.postService.dislikePost(postId);
-      this.loadPosts(); 
+      const updatedPost = await this.postService.getPostById(postId);
+      const index = this.posts.findIndex(post => post.postId === postId);
+      if (index !== -1) {
+        this.posts[index] = updatedPost; 
+      }
     } catch (error: any) {
       this.sharedService.errorLog(error);
     }

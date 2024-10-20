@@ -1,0 +1,26 @@
+.container {
+    margin-top: 20px;
+  }
+  
+  .post-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  .categories {
+    display: flex;
+    gap: 10px; /* Espacio entre categorías */
+    margin-bottom: 15px;
+  }
+  
+  .category-badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    color: #fff; /* El texto será blanco */
+    font-weight: 500;
+    display: inline-block;
+    border: 2px solid transparent; /* Añadir un borde al estilo badge */
+  }
+  
