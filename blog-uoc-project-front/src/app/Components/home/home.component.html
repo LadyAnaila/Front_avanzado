@@ -1,5 +1,6 @@
 <div class="container">
   <h2>Listado de Posts</h2>
+
   <div *ngFor="let post of posts" class="post-card mb-3 p-3 border rounded">
     <div class="categories mb-2">
       <span *ngFor="let category of post.categories" 

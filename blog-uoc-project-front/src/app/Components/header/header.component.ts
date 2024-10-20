@@ -45,6 +45,11 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('register');
   }
 
+  // Método para redirigir al Dashboard
+  dashboard(): void {
+    this.router.navigateByUrl('dashboard');
+  }
+
   adminPosts(): void {
     this.router.navigateByUrl('posts');
   }

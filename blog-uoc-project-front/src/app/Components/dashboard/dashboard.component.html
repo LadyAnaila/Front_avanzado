@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Listado de Posts</h2>
+  
+    <div class="totals mb-4">
+      <h3>Total Likes: {{ totalLikes }}</h3>
+      <h3>Total Dislikes: {{ totalDislikes }}</h3>
+    </div>
+  
+    <div *ngFor="let post of posts" class="post-card mb-3 p-3 border rounded">
+      <div class="categories mb-2">
+        <span *ngFor="let category of post.categories" 
+              [ngStyle]="{'background-color': category.css_color}" 
+              class="badge me-1">
+          {{ category.title }}
+        </span>
+      </div>
+  
+      <h3>Title: {{ post.title }}</h3>
+      <p>Description: {{ post.description }}</p>
+      <p><strong>Likes:</strong> {{ post.num_likes }} | <strong>Dislikes:</strong> {{ post.num_dislikes }}</p>
+      <p><strong>Fecha de publicación:</strong> {{ post.publication_date | date: 'yyyy-MM-dd' }}</p>
+  
+      <div *ngIf="showButtons" class="mt-2">
+        <button (click)="like(post.postId)" class="btn btn-success me-2">👍 Like</button>
+        <button (click)="dislike(post.postId)" class="btn btn-danger">👎 Dislike</button>
+      </div>
+    </div>
+  </div>
+  

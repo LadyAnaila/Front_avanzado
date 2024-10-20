@@ -16,6 +16,7 @@ import { ProfileComponent } from './Components/profile/profile.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { AuthInterceptorService } from './Services/auth-interceptor.service';
 import { FormatDatePipe } from './Pipes/format-date.pipe';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { FormatDatePipe } from './Pipes/format-date.pipe';
     CategoryFormComponent,
     PostFormComponent,
     FormatDatePipe,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
