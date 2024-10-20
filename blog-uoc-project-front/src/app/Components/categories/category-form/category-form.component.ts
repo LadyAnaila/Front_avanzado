@@ -39,7 +39,7 @@ export class CategoryFormComponent implements OnInit {
   ) {
     this.isValidForm = null;
     this.categoryId = this.activatedRoute.snapshot.paramMap.get('id');
-    this.category = new CategoryDTO('', '', '');
+    this.category = new CategoryDTO('', '', '', '');
     this.isUpdateMode = false;
     this.validRequest = false;
 
@@ -166,7 +166,7 @@ export class CategoryFormComponent implements OnInit {
     if (this.isUpdateMode) {
       this.validRequest = await this.editCategory(); 
     } else {
-      this.validRequest = await this.createCategory(); 
+      this.validRequest = await this.createCategory();
     }
   }
 }

@@ -18,6 +18,12 @@ export class CategoryService {
     this.urlBlogUocApi = 'http://localhost:3000/' + this.controller;
   }
 
+  getCategories(): Promise<CategoryDTO[]> {
+    return this.http
+      .get<CategoryDTO[]>(this.urlBlogUocApi)
+      .toPromise();
+  }
+
   getCategoriesByUserId(userId: string): Promise<CategoryDTO[]> {
     return this.http
       .get<CategoryDTO[]>('http://localhost:3000/users/categories/' + userId)

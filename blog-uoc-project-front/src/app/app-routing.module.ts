@@ -5,7 +5,7 @@ import { CategoryFormComponent } from './Components/categories/category-form/cat
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { PostFormComponent } from './Components/posts/post-form/post-form.component';
-import { PostsListComponent } from './Components/posts/posts-list/posts-list.component';
+import { PostListComponent } from './Components/posts/posts-list/posts-list.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { AuthGuard } from './Guards/auth.guard';
@@ -29,11 +29,17 @@ const routes: Routes = [
   },
   {
     path: 'posts',
-    component: PostsListComponent,
+    component: PostListComponent,
     canActivate: [AuthGuard],
   },
   {
-    path: 'user/post/:id',
+    path: 'user/post/',
+    component: PostFormComponent,
+    canActivate: [AuthGuard],
+  },
+  
+  {
+    path: 'posts/edit/:id', 
     component: PostFormComponent,
     canActivate: [AuthGuard],
   },

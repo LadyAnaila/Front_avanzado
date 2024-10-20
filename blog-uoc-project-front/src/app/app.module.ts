@@ -11,11 +11,12 @@ import { HeaderComponent } from './Components/header/header.component';
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { PostFormComponent } from './Components/posts/post-form/post-form.component';
-import { PostsListComponent } from './Components/posts/posts-list/posts-list.component';
+import { PostListComponent } from './Components/posts/posts-list/posts-list.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { AuthInterceptorService } from './Services/auth-interceptor.service';
 import { FormatDatePipe } from './Pipes/format-date.pipe';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { FormatDatePipe } from './Pipes/format-date.pipe';
     FooterComponent,
     HomeComponent,
     ProfileComponent,
-    PostsListComponent,
+    PostListComponent,
     CategoriesListComponent,
     CategoryFormComponent,
     PostFormComponent,

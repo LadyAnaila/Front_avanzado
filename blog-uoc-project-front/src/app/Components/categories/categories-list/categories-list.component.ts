@@ -48,7 +48,6 @@ export class CategoriesListComponent {
   async deleteCategory(categoryId: string): Promise<void> {
     let errorResponse: any;
 
-    // show confirmation popup
     let result = confirm(
       'Confirm delete category with id: ' + categoryId + ' .'
     );

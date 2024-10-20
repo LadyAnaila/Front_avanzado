@@ -1,6 +1,41 @@
-<div style="margin-left: auto; margin-right: auto">
-  <p id="postFeedback"></p>
-</div>
-<div>
-  <!-- TODO 14 -->
-</div>
+<form [formGroup]="postForm" (ngSubmit)="savePost()">
+  <div>
+    <label for="title">Title:</label>
+    <input id="title" formControlName="title" required />
+    <div *ngIf="postForm.get('title')?.invalid && (postForm.get('title')?.dirty || postForm.get('title')?.touched)">
+      <small *ngIf="postForm.get('title')?.errors?.required">Title is required.</small>
+      <small *ngIf="postForm.get('title')?.errors?.maxlength">Max length 55 characters.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="description">Description:</label>
+    <textarea id="description" formControlName="description" required></textarea>
+    <div *ngIf="postForm.get('description')?.invalid && (postForm.get('description')?.dirty || postForm.get('description')?.touched)">
+      <small *ngIf="postForm.get('description')?.errors?.required">Description is required.</small>
+      <small *ngIf="postForm.get('description')?.errors?.maxlength">Max length 255 characters.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="publication_date">Date:</label>
+    <input type="date" id="publication_date" formControlName="publication_date" required />
+    <div *ngIf="postForm.get('publication_date')?.invalid && (postForm.get('publication_date')?.dirty || postForm.get('publication_date')?.touched)">
+      <small *ngIf="postForm.get('publication_date')?.errors?.required">Publication date is required.</small>
+      <small *ngIf="postForm.get('publication_date')?.errors?.pattern">Invalid date format. Please use 'yyyy-mm-dd'.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="category">Category:</label>
+    <select id="category" formControlName="category" required>
+      <option value="" disabled selected>Select category</option>
+      <option *ngFor="let category of categories" [value]="category.categoryId">{{ category.title }}</option>
+    </select>
+    <div *ngIf="postForm.get('category')?.invalid && (postForm.get('category')?.dirty || postForm.get('category')?.touched)">
+      <small *ngIf="postForm.get('category')?.errors?.required">Category is required.</small>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="postForm.invalid">SAVE</button>
+</form>
